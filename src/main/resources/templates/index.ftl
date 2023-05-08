@@ -18,6 +18,10 @@
 <div class="divTitulo">
     <h1 class="titulo">Trabalho Prático - ECO160</h1>
     <h2>Linguagens de Programação e Compiladores</h2>
+    <p>
+
+    </p>
+    <a href="https://github.com/vinicius01cs/Projeto1-ECO160"><img src="/imagens/gitHub.png"></a>
 </div>
 <div class="divTecnologias">
     <p class="titulos">Tecnologias Utilizadas</p>
@@ -47,8 +51,16 @@
 <div class="divMembros">
     <p class="titulos">Membros</p>
     <div class="integrante">
-        <p>Vinicius Campos Soares</p>
-        <p>Matricula: 21083</p>
+        <p style="font-size: 25px">Vinicius Campos</p>
+        <p style="font-size: 20px">Matricula: 21083</p>
+    </div>
+    <div class="integrante">
+        <p style="font-size: 25px">Davi Viana</p>
+        <p style="font-size: 20px">Matricula: 20789</p>
+    </div>
+    <div class="integrante">
+        <p style="font-size: 25px">Katia Souza</p>
+        <p style="font-size: 20px">Matricula:</p>
     </div>
 </div>
 </body>
@@ -108,7 +120,7 @@
         color: #f0f2e9;
     }
     .titulos{
-        font-size: 30px;
+        font-size: 40px;
     }
     nav.imagensTec{
         position: static;
@@ -127,8 +139,12 @@
         font-size: 15px;
     }
     .integrante{
+        text-align: left;
         border-color: #f0f2e9;
-
+        border-bottom-style: solid;
+    }
+    .integrante p{
+        margin-left: 20px;
     }
 </style>
 </html>
