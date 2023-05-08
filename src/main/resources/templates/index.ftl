@@ -1,5 +1,3 @@
-<#import "_layout.ftl" as layout />
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,7 +5,7 @@
 </head>
 <body>
 <div>
-    <nav>
+    <nav class="menu">
         <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/professores">Professores</a></li>
@@ -16,42 +14,121 @@
         </ul>
     </nav>
 </div>
-<div>
-    <h1>Trabalho Prático - ECO160</h1>
-    <h3>Linguagens de Programação e Compiladores</h3>
+
+<div class="divTitulo">
+    <h1 class="titulo">Trabalho Prático - ECO160</h1>
+    <h2>Linguagens de Programação e Compiladores</h2>
+</div>
+<div class="divTecnologias">
+    <p class="titulos">Tecnologias Utilizadas</p>
+    <nav class="imagensTec">
+        <ul>
+            <li>
+                <img src="/imagens/frontend.png" alt="HTML, CSS e Javascript">
+                <p>Frontend</p>
+            </li>
+            <li>
+                <img src="/imagens/H2.png" alt="Banco de dados - H2" >
+                <p>Banco de dados</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <img src="/imagens/kotlin.png" alt="Kotlin">
+                <p>Backend</p>
+            </li>
+            <li>
+                <img src="/imagens/ktor.png" alt="Ktor">
+                <p>Framework</p>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="divMembros">
+    <p class="titulos">Membros</p>
+    <div class="integrante">
+        <p>Vinicius Campos Soares</p>
+        <p>Matricula: 21083</p>
+    </div>
 </div>
 </body>
 
 <style>
-    nav {
-        position: fixed;
-        top: 0;
+    body {
+        margin: 0;
+        background-color: #f8f8f8;
+    }
+    nav.menu {
+        position: static;
         width: 100%;
-        background-color: #fff;
+        background-color: #f0f2e9;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    nav ul {
+    .menu ul {
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    nav li {
+    .menu li {
         display: inline-block;
     }
 
-    nav a {
+    .menu a {
         display: block;
         padding: 10px;
         text-decoration: none;
         color: #333;
     }
 
-    nav a:hover {
-        background-color: #f2f2f2;
+    .menu a:hover {
+        background-color: #807675;
+        color: #f8efea;
     }
 
-</style>
+    .divTitulo{
+        display: inline-block;
+        background-color: #807675;
+        width: 100%;
+        text-align: center;
+        color: #f8efea;
+    }
+    .divTecnologias{
+        display: inline-block;
+        background-color: #f8f8f8;
+        width: 100%;
+        text-align: center;
+    }
+    .divMembros{
+        display: inline-block;
+        width: 100%;
+        background-color: #0f020a;
+        text-align: center;
+        color: #f0f2e9;
+    }
+    .titulos{
+        font-size: 30px;
+    }
+    nav.imagensTec{
+        position: static;
+        width: 100%;
+    }
+    .imagensTec ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .imagensTec li{
+        display: inline-block;
+        padding: 10px;
+    }
+    .imagensTec p{
+        font-size: 15px;
+    }
+    .integrante{
+        border-color: #f0f2e9;
 
+    }
+</style>
 </html>

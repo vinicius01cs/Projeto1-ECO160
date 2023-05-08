@@ -9,6 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.util.*
 import com.example.dao.*
+import java.io.File
 
 fun Application.configureRouting() {
     val daoProf = DAOFacadeImpl()
@@ -16,6 +17,8 @@ fun Application.configureRouting() {
     val daoChave = DAOChaveImpl()
 
     routing {
+        staticResources("/imagens", "imagens")
+
         get("/") {
             call.respond(FreeMarkerContent("index.ftl", mapOf("articles" to articles)))
         }
