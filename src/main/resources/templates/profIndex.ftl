@@ -96,8 +96,8 @@
         background-color: #807675;
         color: #f8efea;
     }
-    .botao {
-        background-color: #807675;
+    .botao{
+        background-color: #286655;
         border: none;
         color: #f8efea;
         padding: 16px 32px;
@@ -105,14 +105,16 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin: 4px 2px;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-right: 7px;
         transition-duration: 0.4s;
         cursor: pointer;
     }
 
     .botao:hover{
-        background-color: #0f020a;
-        color: #f8efea;
+        background-color: #98a587;
+        color: #0f020a;
     }
 </style>
 </html>

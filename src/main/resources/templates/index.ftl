@@ -27,21 +27,21 @@
     <p class="titulos">Tecnologias Utilizadas</p>
     <nav class="imagensTec">
         <ul>
-            <li>
+            <li class="grow">
                 <img src="/imagens/frontend.png" alt="HTML, CSS e Javascript">
                 <p>Frontend</p>
             </li>
-            <li>
+            <li class="grow">
                 <img src="/imagens/H2.png" alt="Banco de dados - H2" >
                 <p>Banco de dados</p>
             </li>
         </ul>
         <ul>
-            <li>
+            <li class="grow">
                 <img src="/imagens/kotlin.png" alt="Kotlin">
                 <p>Backend</p>
             </li>
-            <li>
+            <li class="grow">
                 <img src="/imagens/ktor.png" alt="Ktor">
                 <p>Framework</p>
             </li>
@@ -126,6 +126,7 @@
         position: static;
         width: 100%;
     }
+
     .imagensTec ul{
         list-style: none;
         margin: 0;
@@ -134,6 +135,12 @@
     .imagensTec li{
         display: inline-block;
         padding: 10px;
+    }
+    .grow {
+        transition: all .2s ease-in-out;
+    }
+    .grow:hover {
+        transform: scale(1.1);
     }
     .imagensTec p{
         font-size: 15px;
