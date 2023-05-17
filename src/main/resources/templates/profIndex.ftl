@@ -33,7 +33,13 @@
                 <td>${professor.nome}</td>
                 <td>${professor.cpf}</td>
                 <td><a href="/professores/${professor.id}/edit">Editar</a></td>
-                <td><a href="/professores/${professor.id}">Deletar</a></td>
+                <td>
+                    <form action="/professores/${professor.id}" method="post">
+                        <p>
+                            <input type="submit" name="_action" value="Excluir">
+                        </p>
+                    </form>
+                </td>
             </tr>
         </#list>
     </table>
