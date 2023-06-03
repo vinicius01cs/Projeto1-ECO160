@@ -2,9 +2,9 @@
 
 <!DOCTYPE html>
 <html>
-    <header>
-        <title>${professor.nome}</title>
-    </header>
+<header>
+    <title>${professor.nome}</title>
+</header>
     <body>
     <div>
         <nav class="menu">
@@ -17,15 +17,17 @@
         </nav>
     </div>
     <div class="divCampo">
+        <p class="separador"></p>
         <p>
             <label>Nome</label>
             <label>${professor.nome}</label>
         </p>
-        <p class="separador"></p>
         <p>
             <label>CPF</label>
             <label>${professor.cpf}</label>
         </p>
+        <p class="separador"></p>
+        <a href="/professores" class="botaoVoltar">Voltar</a>
     </div>
     </body>
     <style>
@@ -74,6 +76,21 @@
             margin-right: 30px;
             margin-left: 30px;
             border-radius: 35px;
+        }
+        .botaoVoltar {
+            background-color: #807675;
+            border: none;
+            color: #f8efea;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-right: 7px;
+            transition-duration: 0.4s;
+            cursor: pointer;
         }
     </style>
 </html>

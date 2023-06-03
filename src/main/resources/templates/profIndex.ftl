@@ -43,7 +43,7 @@
             </tr>
         </#list>
     </table>
-    <a href="/professores/new" class="botao">Novo</a>
+    <a href="/professores/new" class="botao">Novo Professor</a>
 </body>
 <style>
     body {

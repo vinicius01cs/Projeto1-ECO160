@@ -1,10 +1,10 @@
 <#-- @ftlvariable name="professor" type="com.example.models.Professor" -->
 <!DOCTYPE html>
 <html>
-    <header>
-        <title>Editar Professor</title>
-    </header>
-    <body>
+<header>
+    <title>Editar Professor</title>
+</header>
+<body>
         <div>
             <nav class="menu">
                 <ul>
@@ -92,7 +92,7 @@
                 campoCPF.value = cpfFormatado;
             });
         </script>
-    </body>
+</body>
 <style>
     body {
         margin: 0;

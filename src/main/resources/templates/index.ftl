@@ -18,10 +18,6 @@
 <div class="divTitulo">
     <h1 class="titulo">Trabalho Prático - ECO160</h1>
     <h2>Linguagens de Programação e Compiladores</h2>
-    <p>
-
-    </p>
-    <a href="https://github.com/vinicius01cs/Projeto1-ECO160"><img src="/imagens/gitHub.png"></a>
 </div>
 <div class="divTecnologias">
     <p class="titulos">Tecnologias Utilizadas</p>
@@ -53,6 +49,7 @@
     <div class="integrante">
         <p style="font-size: 25px">Vinicius Campos</p>
         <p style="font-size: 20px">Matricula: 21083</p>
+        <p style="font-size: 20px">Follow me on GitHub:<a href="https://github.com/vinicius01cs"><img src="/imagens/gitHub.png"></a></p>
     </div>
     <div class="integrante">
         <p style="font-size: 25px">Davi Viana</p>

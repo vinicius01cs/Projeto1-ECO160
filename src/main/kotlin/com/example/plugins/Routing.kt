@@ -108,7 +108,7 @@ fun Application.configureRouting() {
                 when (formParameters.getOrFail("_action")) {
                     "Atualizar" -> {
                         val codDisciplina = formParameters.getOrFail("codDisciplina")
-                        var local = true//TODO arrumar isso depois
+                        var local = false//TODO arrumar isso depois
                         val nomeProf = formParameters.getOrFail("nomeProf")
                         val cpfProf = formParameters.getOrFail("cpfProf")
                         daoDisci.editDisciplina(id ,codDisciplina, local, cpfProf, nomeProf)
