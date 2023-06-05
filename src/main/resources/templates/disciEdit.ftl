@@ -62,7 +62,6 @@
         const cpfFormatado = formatarCPF(cpfDigitado);
         campoCPF.value = cpfFormatado;
         });
-        </script>
     </script>
 </body>
 <style>

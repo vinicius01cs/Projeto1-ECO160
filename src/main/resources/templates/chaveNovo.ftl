@@ -6,36 +6,179 @@
     <title>Novo empréstimo</title>
 </header>
 <body>
+    <div>
+        <nav class="menu">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/professores">Professores</a></li>
+                <li><a href="/disciplinas">Disciplinas</a></li>
+                <li><a href="/chaves">Emprestimos de chaves</a></li>
+            </ul>
+        </nav>
+    </div>
 <form action="/chaves" method="post">
-    <p>
+    <h1 class="titulo">Cadastrar novo empréstimo</h1>
+    <div class="divCampo">
         <label>Professor:</label>
-        <select id="seletor" name="profNome" onchange="atualizarCpf()">
+        <select id="selectProf" name="profNome" onchange="atualizarCpf()" class="select">
+            <option value=""></option>
             <#list professores as professor>
                 <option value="${professor.nome}" data-cpf="${professor.cpf}">${professor.nome}</option>
             </#list>
         </select>
-    </p>
-    <label>CPF</label>
-    <input type="text" id="cpf" name="profCpf">
-    <p>
-        <label>Data emprestimo</label>
-        <input type="datetime-local" name="dataEmprestimo">
-    </p>
-    <p>
-        <label>Data devolução</label>
-        <input type="datetime-local" name="dataDevolucao">
-    </p>
-    <input type="submit" value="Cadastrar">
-    <a href="/disciplinas">Voltar</a>
+        <p></p>
+        <label>CPF</label>
+        <input type="text" id="campo-cpf" name="profCpf" style="width: 200px" maxlength="14">
+        <p></p>
+            <label>Data do empréstimo: </label>
+            <input type="datetime-local" name="dataEmprestimo">
+        <p></p>
+            <label>Data da devolução: </label>
+            <input type="datetime-local" name="dataDevolucao">
+        <p></p>
+    </div>
+    <input type="submit" value="Cadastrar" class="botao">
+    <a href="/disciplinas" class="botaoVoltar">Voltar</a>
 </form>
 </body>
 <script>
     function atualizarCpf() {
-        var selectElement = document.querySelector('select[id="seletor"]');
-        var cpfInput = document.getElementById('cpf');
-        var selectedOption = selectElement.options[selectElement.selectedIndex];
-        cpfInput.value = selectedOption.dataset.cpf;
+        var select = document.getElementById("selectProf");
+        var cpfInput = document.getElementById("campo-cpf");
+        var selectedOption = select.options[select.selectedIndex];
+        var cpf = selectedOption.getAttribute("data-cpf");
+        cpfInput.value = cpf;
     }
-</script>
+    // Função para aplicar a máscara de CPF
+    function formatarCPF(cpf) {
+        cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Insere o primeiro ponto
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Insere o segundo ponto
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Insere o traço
+        return cpf;
+    }
 
+    // Obter o campo de CPF
+    const campoCPF = document.getElementById('campo-cpf');
+
+    // Adicionar um ouvinte de eventos ao campo de CPF
+    campoCPF.addEventListener('input', function() {
+        const cpfDigitado = campoCPF.value;
+        const cpfFormatado = formatarCPF(cpfDigitado);
+        campoCPF.value = cpfFormatado;
+    });
+</script>
+<style>
+    body {
+        margin: 0;
+        background-color: #f8f8f8;
+    }
+    nav.menu {
+        position: static;
+        width: 100%;
+        background-color: #f0f2e9;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu li {
+        display: inline-block;
+    }
+
+    .menu a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .menu a:hover {
+        background-color: #807675;
+        color: #f8efea;
+    }
+
+    .titulo{
+        text-align: center;
+    }
+
+    .botaoVoltar {
+        background-color: #807675;
+        border: none;
+        color: #f8efea;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-right: 7px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .botaoVoltar:hover{
+        background-color: #0f020a;
+        color: #f8efea;
+    }
+    .botao{
+        background-color: #286655;
+        border: none;
+        color: #f8efea;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-right: 7px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .botao:hover{
+        background-color: #98a587;
+        color: #0f020a;
+    }
+    .divCampo{
+        width: 100%;
+
+        background-color: #ddd;
+    }
+    .divCampo label{
+        margin-left: 20px;
+        font-size: 20px;
+    }
+    .divCampo input[type=text]{
+        width: 40%;
+        padding: 12px 20px;
+        margin-left: 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+
+    .select {
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        color: #333;
+        width: 100px;
+        height: 30px
+    }
+
+    .select:focus {
+        outline: none;
+        border-color: #286655;
+        box-shadow: 0 0 0 2px #286655;
+    }
+</style>
 </html>
