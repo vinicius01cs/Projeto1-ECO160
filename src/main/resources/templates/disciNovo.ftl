@@ -16,19 +16,19 @@
             </ul>
         </nav>
     </div>
-    <form action="/disciplinas" method="post">
+    <form action="/disciplinas" method="post" onsubmit="return verificarCampos()">
         <h1 class="titulo">Cadastrar Disciplina</h1>
         <div class="divCampo">
             <label>Codigo da Disciplina:</label>
             <p></p>
-            <input type="text" name="disciCod">
+            <input type="text" name="disciCod" id="disciCod">
             <p></p>
             <label>Local:</label>
             <p></p>
             <label>Sala</label>
-            <input type="radio" id="sala" name="local" value="true">
+                <input type="radio" id="sala" name="local" value="true">
             <label>Laboratório</label>
-            <input type="radio" id="lab" name="local" value="false">
+                <input type="radio" id="lab" name="local" value="false">
             <p></p>
             <label>Professor:</label>
             <select id="selectProf" name="profNome" onchange="atualizarCpf()" class="select">
@@ -46,6 +46,35 @@
         <a href="/disciplinas" class="botaoVoltar">Voltar</a>
     </form>
     <script>
+        function verificarCampos() {
+            var camposPreenchidos = true;
+
+            var disciCod = document.getElementById("disciCod");
+            if (disciCod.value === "") {
+                camposPreenchidos = false;
+            }
+
+            var localSelect = document.querySelector('input[name="local"]:checked');
+            if(!localSelect){
+                camposPreenchidos = false
+            }
+
+
+            var professorSelect = document.getElementById("selectProf");
+            if (professorSelect.value === "") {
+                camposPreenchidos = false;
+            }
+
+
+            var cpfInput = document.getElementById("campo-cpf");
+            if (cpfInput.value === "") {
+                camposPreenchidos = false;
+            }
+            if (!camposPreenchidos) {
+                alert("Por favor, preencha todos os campos.");
+            }
+            return camposPreenchidos;
+        }
         function atualizarCpf() {
             var select = document.getElementById("selectProf");
             var cpfInput = document.getElementById("campo-cpf");

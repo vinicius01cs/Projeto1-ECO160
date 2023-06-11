@@ -19,7 +19,7 @@
     <h1 class="titulo">Emprestimos de chaves</h1>
     <table class="tabela">
         <tr>
-            <th>Id</th>
+            <th>Cod. Empréstimo</th>
             <th>Nome Profeessor</th>
             <th>CPF Professor</th>
             <th>Data Emprestimo</th>

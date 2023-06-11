@@ -16,7 +16,7 @@
             </ul>
         </nav>
     </div>
-<form action="/chaves" method="post">
+<form action="/chaves" method="post" onsubmit="return verificarCampos()">
     <h1 class="titulo">Cadastrar novo empréstimo</h1>
     <div class="divCampo">
         <label>Professor:</label>
@@ -42,6 +42,46 @@
 </form>
 </body>
 <script>
+    function verificarCampos() {
+        var camposPreenchidos = true;
+
+        // Verificar o campo Professor
+        var professorSelect = document.getElementById("selectProf");
+        if (professorSelect.value === "") {
+            camposPreenchidos = false;
+        }
+
+        // Verificar o campo CPF
+        var cpfInput = document.getElementById("campo-cpf");
+        if (cpfInput.value === "") {
+            camposPreenchidos = false;
+        }
+
+        // Verificar o campo Data do empréstimo
+        var dataEmprestimoInput = document.getElementsByName("dataEmprestimo")[0];
+        if (dataEmprestimoInput.value === "") {
+            camposPreenchidos = false;
+        }
+
+        // Verificar o campo Data da devolução
+        var dataDevolucaoInput = document.getElementsByName("dataDevolucao")[0];
+        if (dataDevolucaoInput.value === "") {
+            camposPreenchidos = false;
+        }
+        // Exibir mensagem de erro, caso algum campo esteja vazio
+        if (!camposPreenchidos) {
+            alert("Por favor, preencha todos os campos.");
+        }
+        // Validar se a data de devolução é inferior à data de empréstimo
+        var dataEmprestimo = new Date(dataEmprestimoInput.value);
+        var dataDevolucao = new Date(dataDevolucaoInput.value);
+        if (dataDevolucao < dataEmprestimo) {
+            camposPreenchidos = false;
+            alert("A data de devolução deve ser posterior à data de empréstimo.");
+        }
+
+        return camposPreenchidos;
+    }
     function atualizarCpf() {
         var select = document.getElementById("selectProf");
         var cpfInput = document.getElementById("campo-cpf");

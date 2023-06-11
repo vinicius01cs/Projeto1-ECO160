@@ -85,10 +85,9 @@ fun Application.configureRouting() {
             post {
                 val formParameter = call.receiveParameters()
                 val codDisciplina = formParameter.getOrFail("disciCod")
-                var local = true //TODO arrumar isso depois
+                val local = formParameter.getOrFail("local").toBoolean()
                 val nomeProfessor = formParameter.getOrFail("profNome").toString()
                 val cpfProfessor = formParameter.getOrFail("profCpf").toString()
-                //val cpfProfessor = "12221"
                 val disciplina = daoDisci.addNovaDisciplina(codDisciplina, local, cpfProfessor, nomeProfessor)
 
 
@@ -108,7 +107,7 @@ fun Application.configureRouting() {
                 when (formParameters.getOrFail("_action")) {
                     "Atualizar" -> {
                         val codDisciplina = formParameters.getOrFail("codDisciplina")
-                        var local = false//TODO arrumar isso depois
+                        val local = formParameters.getOrFail("local").toBoolean()
                         val nomeProf = formParameters.getOrFail("nomeProf")
                         val cpfProf = formParameters.getOrFail("cpfProf")
                         daoDisci.editDisciplina(id ,codDisciplina, local, cpfProf, nomeProf)

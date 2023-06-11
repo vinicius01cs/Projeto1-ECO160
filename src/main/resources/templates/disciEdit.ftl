@@ -18,20 +18,20 @@
     </div>
     <h1 class="titulo">Editar Disciplina</h1>
     <div class="divCampo">
-        <form action="/disciplinas/${disciplina.id}" method="post">
+        <form action="/disciplinas/${disciplina.id}" method="post" onsubmit="return verificarCampos()">
             <label>Código da Disciplina: </label>
             <p></p>
-            <input type="text" name="codDisciplina" value="${disciplina.codDisciplina}">
+            <input type="text" id="disciCod" name="codDisciplina" value="${disciplina.codDisciplina}">
             <p></p>
             <label>Local:</label>
             <p></p>
             <label>Sala</label>
-            <input type="radio" id="sala" name="local" value="true">
+                <input type="radio" id="sala" name="local" value="true">
             <label>Laboratório</label>
-            <input type="radio" id="lab" name="local" value="false">
+                <input type="radio" id="lab" name="local" value="false">
             <p></p>
             <label>Nome do Professor</label>
-            <input type="text" name="nomeProf" value="${disciplina.nomeProf}" style="width: 200px">
+            <input type="text" id="nomeProf" name="nomeProf" value="${disciplina.nomeProf}" style="width: 200px">
             <p></p>
             <label>CPF do Professor:</label>
             <input type="text" id="campo-cpf" name="cpfProf" maxlength="14" style="width: 200px" value="${disciplina.cpfProf}">
@@ -44,6 +44,35 @@
         </form>
     </div>
     <script>
+        function verificarCampos() {
+            var camposPreenchidos = true;
+
+            var disciCod = document.getElementById("disciCod");
+            if (disciCod.value === "") {
+                camposPreenchidos = false;
+            }
+
+            var localSelect = document.querySelector('input[name="local"]:checked');
+            if(!localSelect){
+                camposPreenchidos = false
+            }
+
+
+            var professorSelect = document.getElementById("nomeProf");
+            if (professorSelect.value === "") {
+                camposPreenchidos = false;
+            }
+
+
+            var cpfInput = document.getElementById("campo-cpf");
+            if (cpfInput.value === "") {
+                camposPreenchidos = false;
+            }
+            if (!camposPreenchidos) {
+                alert("Por favor, preencha todos os campos.");
+            }
+            return camposPreenchidos;
+        }
         // Função para aplicar a máscara de CPF
         function formatarCPF(cpf) {
         cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos

@@ -15,12 +15,12 @@
         </nav>
     </div>
 
-    <form action="/professores" method="post">
+    <form action="/professores" method="post" onsubmit="return verificarCampos()">
         <h1 class="titulo">Cadastrar Professor</h1>
         <div class="divCampo">
             <label>Nome</label>
             <p></p>
-            <input type="text" placeholder="Insira o nome" name="profNome">
+            <input type="text" placeholder="Insira o nome" id="profNome" name="profNome">
             <p></p>
             <label>CPF</label>
             <p></p>
@@ -29,9 +29,23 @@
         <input type="submit" value="Cadastrar" class="botao">
         <a href="/professores" class="botaoVoltar">Voltar</a>
     </form>
-
     <script>
-        // Função para aplicar a máscara de CPF
+        function verificarCampos() {
+            var camposPreenchidos = true;
+
+            var profNome = document.getElementById("profNome")
+            if(profNome.value === ""){
+                camposPreenchidos = false;
+            }
+            var profCpf = document.getElementById("campo-cpf")
+            if(profCpf.value === ""){
+                camposPreenchidos = false;
+            }
+            if (!camposPreenchidos) {
+                alert("Preencha todos os campos !");
+            }
+            return camposPreenchidos;
+        }
         function formatarCPF(cpf) {
             cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
             cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Insere o primeiro ponto

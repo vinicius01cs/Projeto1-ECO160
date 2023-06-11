@@ -17,10 +17,10 @@
         </div>
         <h1 class="titulo">Editar Professor</h1>
         <div class="divCampo">
-            <form action="/professores/${professor.id}" method="post">
+            <form action="/professores/${professor.id}" method="post" onsubmit="return verificarCampos()">
                 <label>Nome:</label>
                 <p></p>
-                <input type="text" name="profNome" value="${professor.nome}">
+                <input type="text" id="profNome" name="profNome" value="${professor.nome}">
                 <p></p>
                 <label>CPF:</label>
                 <p></p>
@@ -35,6 +35,22 @@
             </form>
         </div>
         <script>
+            function verificarCampos() {
+                var camposPreenchidos = true;
+
+                var profNome = document.getElementById("profNome")
+                if(profNome.value === ""){
+                    camposPreenchidos = false;
+                }
+                var profCpf = document.getElementById("campo-cpf")
+                if(profCpf.value === ""){
+                    camposPreenchidos = false;
+                }
+                if (!camposPreenchidos) {
+                    alert("Preencha todos os campos !");
+                }
+                return camposPreenchidos;
+            }
             // Função para aplicar a máscara de CPF
             function formatarCPF(cpf) {
                 cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
