@@ -16,8 +16,8 @@
         </nav>
     </div>
     <h1 class="titulo">Editar empréstimo de chave</h1>
+    <form action="/chaves/${chave.id}" method="post" onsubmit="return verificarCampos()">
     <div class="divCampo">
-        <form action="/chaves/${chave.id}" method="post" onsubmit="return verificarCampos()">
             <label>Código de empréstimo: ${chave.id}</label>
             <p></p>
             <label>Nome do Professor</label>

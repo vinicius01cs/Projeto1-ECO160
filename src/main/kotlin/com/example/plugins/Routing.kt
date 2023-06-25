@@ -156,11 +156,10 @@ fun Application.configureRouting() {
                 val formParameters = call.receiveParameters()
                 when (formParameters.getOrFail("_action")) {
                     "Atualizar" -> {
-                        val formParameter = call.receiveParameters()
-                        val nomeProfessor = formParameter.getOrFail("nomeProf")
-                        val cpfProfessor = formParameter.getOrFail("cpfProf")
-                        val dataEmprestimo = formParameter.getOrFail("dataEmprestimo")
-                        val dataDevolucao = formParameter.getOrFail("dataDevolucao")
+                        val nomeProfessor = formParameters.getOrFail("nomeProf")
+                        val cpfProfessor = formParameters.getOrFail("cpfProf")
+                        val dataEmprestimo = formParameters.getOrFail("dataEmprestimo")
+                        val dataDevolucao = formParameters.getOrFail("dataDevolucao")
                         daoChave.editChave(id, nomeProfessor, cpfProfessor, dataEmprestimo, dataDevolucao)
                         call.respondRedirect("/chaves/${id}")
                     }

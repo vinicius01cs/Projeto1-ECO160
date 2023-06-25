@@ -42,7 +42,7 @@ class DAODisciImpl : DAODisci {
             it[Disciplinas.local] = local
             it[Disciplinas.cpfProf] = cpfProf
             it[Disciplinas.nomeProf] = nomeProf
-        } > 0
+        } >= 0
     }
 
     override suspend fun deleteDisciplina(id: Int): Boolean = dbQuery {
