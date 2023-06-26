@@ -38,7 +38,7 @@
         <p></p>
     </div>
     <input type="submit" value="Cadastrar" class="botao">
-    <a href="/disciplinas" class="botaoVoltar">Voltar</a>
+    <a href="/chaves" class="botaoVoltar">Voltar</a>
 </form>
 </body>
 <script>
